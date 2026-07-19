@@ -22,7 +22,13 @@
     toggle.dataset.current = currentTheme;
     toggle.setAttribute("aria-pressed", String(currentTheme === "dark"));
     toggle.addEventListener("click", () => setTheme(toggle.dataset.current === "dark" ? "light" : "dark"));
-    document.querySelectorAll('a[href^="http"]').forEach((link) => {link.target="_blank";link.rel="noopener noreferrer";});
+    document.querySelectorAll("a[href]").forEach((link) => {
+      const destination = new URL(link.href, window.location.href);
+      if (/^https?:$/.test(destination.protocol) && destination.origin !== window.location.origin) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+    });
 
     const inputs = Object.fromEntries(units.map((unit) => [unit, document.querySelector(`[data-unit="${unit}"]`)]));
     const error = document.querySelector("#converter-error");
