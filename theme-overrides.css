@@ -5,6 +5,11 @@
   box-shadow: 9px 9px 0 var(--surface);
 }
 
+.intro h1 {
+  font-size: clamp(2.8rem, 6vw, 5.3rem);
+  line-height: .92;
+}
+
 .difference-inputs label > div,
 .primary-result,
 .result-grid,
@@ -19,12 +24,19 @@
   border-color: var(--line);
 }
 
+.lambda-label {
+  display: flex !important;
+  align-items: baseline;
+  gap: 7px;
+}
+
 .lambda-label i {
-  display: inline-block;
-  margin-left: 4px;
-  font: italic .82rem Georgia, serif;
+  display: inline;
+  margin: 0;
+  font: italic .9rem Georgia, serif;
   letter-spacing: 0;
   text-transform: none;
+  white-space: nowrap;
 }
 
 .lambda-label sub {
@@ -36,6 +48,27 @@
   opacity: 1;
 }
 
+.physics-note .note-label {
+  margin-right: 10px;
+  padding: 0;
+  background: none;
+  color: var(--accent);
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.inline-equation {
+  font: italic .9rem Georgia, serif;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.inline-equation sub {
+  font-size: .7em;
+}
+
 @media (max-width: 850px) {
   .result-item:nth-child(3n) {
     border-right-color: var(--line);
@@ -43,6 +76,10 @@
 }
 
 @media (max-width: 620px) {
+  .intro h1 {
+    font-size: clamp(2.45rem, 11vw, 3.8rem);
+  }
+
   .difference-card {
     box-shadow: 6px 6px 0 var(--surface);
   }
