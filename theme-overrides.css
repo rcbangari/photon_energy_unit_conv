@@ -1,0 +1,54 @@
+.difference-card {
+  background: var(--white);
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 9px 9px 0 var(--surface);
+}
+
+.difference-inputs label > div,
+.primary-result,
+.result-grid,
+.result-item {
+  border-color: var(--line);
+}
+
+.primary-result button,
+.result-item > button {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.lambda-label i {
+  display: inline-block;
+  margin-left: 4px;
+  font: italic .82rem Georgia, serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.lambda-label sub {
+  font-size: .7em;
+}
+
+.physics-note {
+  color: var(--body);
+  opacity: 1;
+}
+
+@media (max-width: 850px) {
+  .result-item:nth-child(3n) {
+    border-right-color: var(--line);
+  }
+}
+
+@media (max-width: 620px) {
+  .difference-card {
+    box-shadow: 6px 6px 0 var(--surface);
+  }
+
+  .result-item,
+  .result-item:nth-child(3n) {
+    border-bottom-color: var(--line);
+  }
+}
