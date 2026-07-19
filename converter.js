@@ -30,6 +30,30 @@
       }
     });
 
+    const spectrumSlider = document.querySelector("#spectrum-slider");
+    const spectrumMarker = document.querySelector("#spectrum-marker");
+    const spectrumOutputs = {
+      cm1: document.querySelector("#spectrum-cm1"),
+      um: document.querySelector("#spectrum-um"),
+      ev: document.querySelector("#spectrum-ev"),
+      thz: document.querySelector("#spectrum-thz"),
+      slider: document.querySelector("#spectrum-slider-value")
+    };
+    const spectrumFormat = (value) => Number(value.toPrecision(6)).toLocaleString("en-US", {maximumFractionDigits: 6});
+    const updateSpectrum = () => {
+      const logThz = Number(spectrumSlider.value);
+      const thz = 10 ** logThz;
+      const cm1 = thz / THZ_PER_CM1;
+      spectrumOutputs.cm1.textContent = spectrumFormat(cm1);
+      spectrumOutputs.um.textContent = spectrumFormat(1e4 / cm1);
+      spectrumOutputs.ev.textContent = spectrumFormat(cm1 * EV_PER_CM1);
+      spectrumOutputs.thz.textContent = spectrumFormat(thz);
+      spectrumOutputs.slider.textContent = `${spectrumFormat(thz)} THz`;
+      spectrumMarker.style.left = `${((logThz - Number(spectrumSlider.min)) / (Number(spectrumSlider.max) - Number(spectrumSlider.min))) * 100}%`;
+    };
+    spectrumSlider.addEventListener("input", updateSpectrum);
+    updateSpectrum();
+
     const inputs = Object.fromEntries(units.map((unit) => [unit, document.querySelector(`[data-unit="${unit}"]`)]));
     const error = document.querySelector("#converter-error");
     const setActive = (unit) => document.querySelectorAll(".unit-field").forEach((field) => field.classList.toggle("active", field.dataset.field === unit));

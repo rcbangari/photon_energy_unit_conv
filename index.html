@@ -12,7 +12,7 @@
   if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=20260719-2">
+<link rel="stylesheet" href="styles.css?v=20260719-4">
 <link rel="stylesheet" href="theme-overrides.css?v=20260719-3">
 <link rel="stylesheet" href="colors.css?v=20260719-1">
 </head>
@@ -64,6 +64,28 @@
 <div class="formula"><span>Relation</span><p>ν = cṽ &nbsp;&nbsp; λ = 1/ṽ &nbsp;&nbsp; E = hν</p></div>
 </section>
 
+<section class="spectrum-section" aria-labelledby="spectrum-title">
+<div class="section-heading"><div><h2 id="spectrum-title">Spectrum visualizer</h2></div><p>Move across the electromagnetic spectrum from terahertz frequencies to ultraviolet light.</p></div>
+<div class="spectrum-card">
+<dl class="spectrum-values" aria-live="polite">
+<div><dt>Wavenumber</dt><dd><output id="spectrum-cm1">1,000.0000</output><span>cm⁻¹</span></dd></div>
+<div><dt>Wavelength</dt><dd><output id="spectrum-um">10.0000</output><span>μm</span></dd></div>
+<div><dt>Photon energy</dt><dd><output id="spectrum-ev">0.1240</output><span>eV</span></dd></div>
+<div><dt>Frequency</dt><dd><output id="spectrum-thz">29.9792</output><span>THz</span></dd></div>
+</dl>
+<div class="spectrum-plot">
+<div class="spectrum-track" role="img" aria-label="Logarithmic electromagnetic spectrum from 0.1 to 3000 terahertz, divided into terahertz, infrared, visible, and ultraviolet regions">
+<span class="spectrum-band band-thz">THz</span><span class="spectrum-band band-ir">Infrared</span><span class="spectrum-band band-visible">Visible</span><span class="spectrum-band band-uv">UV</span>
+<i class="spectrum-marker" id="spectrum-marker" aria-hidden="true"></i>
+</div>
+<div class="spectrum-endpoints"><span>0.1 THz</span><span>3,000 THz</span></div>
+</div>
+<label class="spectrum-control" for="spectrum-slider"><span>Frequency</span><output id="spectrum-slider-value" for="spectrum-slider">29.9792 THz</output></label>
+<input id="spectrum-slider" class="spectrum-slider" type="range" min="-1" max="3.4771212547" step="0.001" value="1.476820703" aria-label="Frequency on a logarithmic scale from 0.1 to 3000 terahertz">
+<p class="spectrum-note">Band boundaries are approximate; terminology varies by field.</p>
+</div>
+</section>
+
 <section class="difference-section" aria-labelledby="difference-title">
 <div class="difference-card">
 <div class="section-heading"><div><h2 id="difference-title">Difference</h2></div><p>Enter two wavenumbers to calculate their separation.</p></div>
@@ -92,6 +114,6 @@
 </aside>
 </main>
 <footer><span>Photon Energy Unit Converter</span><a href="https://rcbangari.github.io/">rcbangari.github.io</a><a href="https://github.com/rcbangari/photon_energy_unit_conv" target="_blank" rel="noopener noreferrer">GitHub repository</a><span>© 2026 Ramachandra Bangari · Website made with help from Codex · Last updated July 19, 2026</span></footer>
-<script src="converter.js?v=20260719-2"></script>
+<script src="converter.js?v=20260719-3"></script>
 </body>
 </html>
