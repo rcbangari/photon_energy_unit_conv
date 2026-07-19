@@ -9,3 +9,7 @@ A standalone browser-based converter for optical spectroscopy units:
 - Spectral-line separation
 
 Live site: https://rcbangari.github.io/photon_energy_unit_conv/
+
+## Copyright
+
+Copyright © 2026 Ramachandra Bangari. All rights reserved.
